@@ -1,5 +1,6 @@
 require('../sass/test.scss')
-var Toast=require('../module/toast.js').Toast
 
 
-Toast('hello')
+var Note = require('./module/note.js').Note;
+
+new Note('.content')
