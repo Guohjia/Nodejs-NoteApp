@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-note",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "webpack": "webpack --config=src/webpack.config.js",
+    "watch": "onchange src/**/*.js  src/**/*.scss -- npm run webpack"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "node-sass": "^4.5.3",
+    "onchange": "^3.2.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.4.1"
+  }
+}

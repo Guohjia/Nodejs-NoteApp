@@ -1,0 +1,15 @@
+body{
+    margin:0;
+}
+.toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    color:black;
+    background: blue;
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 1px rgba(255, 2552, 255, .6);
+    display: none;
+}
