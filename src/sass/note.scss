@@ -1,13 +1,18 @@
-.note{
-    border:1px solid blue;
-    width: 8em;
-    .note-head{
-        padding: 1em;
-        .delete{
-            cursor: pointer;
-        }
+.wrapper{
+    position: relative;
+    .note{
+        border:1px solid blue;
+        width: 8em;
+        margin:1em 1em 0 0;
+        position: absolute;
+        .note-head{
+            padding: 1em;
+            .delete{
+                cursor: pointer;
+            }
     }
     .note-content{
         padding: 3em 2em;
+       }   
     }
 }

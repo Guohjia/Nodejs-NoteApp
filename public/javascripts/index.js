@@ -592,20 +592,28 @@ module.exports.Toast=Toast
 
 /* WEBPACK VAR INJECTION */(function($) {__webpack_require__(7)
 
-var NoteControl = __webpack_require__(10).NoteManager;
+var NoteControl = __webpack_require__(10).NoteControl;
 var Event = __webpack_require__(1);
 var WaterFall = __webpack_require__(14);
 
+NoteControl.load();
 
-// NoteManager.load();
 
 $('.add-note').on('click', function() {
-  NoteControl.add();
+    NoteControl.add();
+ 
 })
 
-Event.on('waterfall', function(){
-  WaterFall($('#content'));
+Event.on('WaterFall', function(){
+  WaterFall($('.wrapper'));
 })
+
+
+/**
+ * 需求:
+ * 1.只能弹出一个待输入新增
+ * 2.通过向数据库发送，保留拖拽之后的位置，使用户下次进来时在相同的位置;不过最好，用户关闭页面c的时候保留，避免过多的请求
+ */
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
@@ -766,8 +774,8 @@ var Note = __webpack_require__(11).Note;
 var Event = __webpack_require__(1);
 
 
-var NoteManager = (function () {
-
+var NoteControl = (function () {
+    var isCreating = false
     function load() {
         $.get('/api/notes')
             .done(function (result) {
@@ -775,11 +783,11 @@ var NoteManager = (function () {
                     $.each(result.data, function (index, article) {
                         new Note({
                             id: article.id,
-                            context: article.text
+                            content: article.text
                         });
                     });
 
-                    Event.fire('waterfall');
+                    Event.fire('WaterFall');
                 } else {
                     Toast(result.errorMsg);
                 }
@@ -791,6 +799,7 @@ var NoteManager = (function () {
     }
 
     function add() {
+        isCreating
         new Note();
     }
 
@@ -801,7 +810,7 @@ var NoteManager = (function () {
 
 })();
 
-module.exports.NoteManager = NoteManager
+module.exports.NoteControl = NoteControl
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
@@ -811,7 +820,7 @@ module.exports.NoteManager = NoteManager
 __webpack_require__(12)
 // var waterfall=require('./waterfall.js')
 // console.log(waterfall)
-
+// var WaterFall = require('./waterFall.js')
 var Toast = __webpack_require__(4).Toast;
 var Event = __webpack_require__(1);
 var $=__webpack_require__(0)
@@ -837,7 +846,7 @@ Note.prototype = {
     defaultOptions: {
         id: '',
         content: 'Input Here!',
-        $wrapper: $('#wrapper').length > 0 ? $('#wrapper') : $('body')  //判断是否有wrapper容器存在，如果没有就用body,其实此处直接用wrapper就好，就不用每次配置信息都带上wrapper/body
+        $wrapper: $('.wrapper') //判断是否有wrapper容器存在，如果没有就用body,其实此处直接用wrapper就好，就不用每次配置信息都带上wrapper/body
     },
 
     initOptions: function (options) {
@@ -846,6 +855,12 @@ Note.prototype = {
     },
 
     createNote: function () {
+        // if(this.isCreating===true&&this.options.content =='Input Here!') {
+        //     console.log('正在创建')
+        //     Toast('待输入新增已存在')
+        //     return;   //正在创建并且便利签内容为初始值则直接返回，只要不是正在创建或者内容不为初始值就可以拼接字符串;
+        // }
+        // this.isCreating=true
         var template = '<div class="note">'  //一个便利贴的html
             + '<div class="note-head"><span class="delete">&times;</span></div>'
             + '<div class="note-content" contenteditable="true"></div>'   //contenteditable可修改
@@ -853,7 +868,7 @@ Note.prototype = {
         this.$note = $(template);
         this.$note.find('.note-content').html(this.options.content);
         this.options.$wrapper.append(this.$note);
-        if (!this.id) this.$note.css('bottom', '10px');  //新增放到右边,待新增放底部?
+        if (!this.id) this.$note.css('bottom', '0');  //新增放到右边,待新增放底部?
     },
 
     setStyle: function () {
@@ -886,11 +901,7 @@ Note.prototype = {
             _this.delete();
         })
 
-        // console.log($addNote)
-        // $addNote.on('click',function(){
-        //     _this.add()
-        // })
-
+      
         $noteContent.on('focus', function () {
             //第一次编辑信息就清除内容；编辑已有信息就保存之前的信息在before属性上
             if($noteContent.html() == 'Input Here!'){$noteContent.html('')} 
@@ -942,10 +953,11 @@ Note.prototype = {
             note: message
         }).done(function(result){
             if(result.status===0){
+                Event.fire('WaterFall')
                 Toast('add success')
             }else{
                 _this.$note.remove();
-                Event.fire('waterfall')
+                Event.fire('WaterFall')
                 Toast(result.errorMsg);
             }
         })
@@ -959,7 +971,7 @@ Note.prototype = {
             if(result.status===0){
                 Toast('delete success')
                 _this.$note.remove();
-                Event.fire('waterfall')
+                Event.fire('WaterFall')
             }else{
                 Toast(result.errorMsg)
             }
@@ -1010,7 +1022,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".note {\n  border: 1px solid blue;\n  width: 8em; }\n  .note .note-head {\n    padding: 1em; }\n    .note .note-head .delete {\n      cursor: pointer; }\n  .note .note-content {\n    padding: 3em 2em; }\n", ""]);
+exports.push([module.i, ".wrapper {\n  position: relative; }\n  .wrapper .note {\n    border: 1px solid blue;\n    width: 8em;\n    margin: 1em 1em 0 0;\n    position: absolute; }\n    .wrapper .note .note-head {\n      padding: 1em; }\n      .wrapper .note .note-head .delete {\n        cursor: pointer; }\n    .wrapper .note .note-content {\n      padding: 3em 2em; }\n", ""]);
 
 // exports
 
@@ -1023,7 +1035,8 @@ exports.push([module.i, ".note {\n  border: 1px solid blue;\n  width: 8em; }\n  
 var WaterFall = (function () {
     var $items;
 
-    function render($content) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    function render($content) {
+        console.log($content)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
         $items=$content.children();
         var colLength = parseInt($(window).width() / $items.outerWidth(true));///列数
         var itemArr = []
@@ -1035,6 +1048,7 @@ var WaterFall = (function () {
             var maxValue = Math.max.apply(null, itemArr)
             var minIndex = itemArr.indexOf(minValue)  //得到高度最小值所在的列
             $content.css({ height: maxValue })  //子元素绝对定位之后脱离文档流，只能如此撑开父元素；
+            // console.log(this)
             $(this).css({
                 top: minValue,
                 left: $(this).outerWidth(true) * minIndex

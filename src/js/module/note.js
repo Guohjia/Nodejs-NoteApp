@@ -1,7 +1,7 @@
 require('../../sass/note.scss')
 // var waterfall=require('./waterfall.js')
 // console.log(waterfall)
-
+// var WaterFall = require('./waterFall.js')
 var Toast = require('./toast.js').Toast;
 var Event = require('./event.js');
 var $=require('../lib/jquery-3.2.0.min.js')
@@ -27,7 +27,7 @@ Note.prototype = {
     defaultOptions: {
         id: '',
         content: 'Input Here!',
-        $wrapper: $('#wrapper').length > 0 ? $('#wrapper') : $('body')  //判断是否有wrapper容器存在，如果没有就用body,其实此处直接用wrapper就好，就不用每次配置信息都带上wrapper/body
+        $wrapper: $('.wrapper') //判断是否有wrapper容器存在，如果没有就用body,其实此处直接用wrapper就好，就不用每次配置信息都带上wrapper/body
     },
 
     initOptions: function (options) {
@@ -36,6 +36,12 @@ Note.prototype = {
     },
 
     createNote: function () {
+        // if(this.isCreating===true&&this.options.content =='Input Here!') {
+        //     console.log('正在创建')
+        //     Toast('待输入新增已存在')
+        //     return;   //正在创建并且便利签内容为初始值则直接返回，只要不是正在创建或者内容不为初始值就可以拼接字符串;
+        // }
+        // this.isCreating=true
         var template = '<div class="note">'  //一个便利贴的html
             + '<div class="note-head"><span class="delete">&times;</span></div>'
             + '<div class="note-content" contenteditable="true"></div>'   //contenteditable可修改
@@ -43,7 +49,7 @@ Note.prototype = {
         this.$note = $(template);
         this.$note.find('.note-content').html(this.options.content);
         this.options.$wrapper.append(this.$note);
-        if (!this.id) this.$note.css('bottom', '10px');  //新增放到右边,待新增放底部?
+        if (!this.id) this.$note.css('bottom', '0');  //新增放到右边,待新增放底部?
     },
 
     setStyle: function () {
@@ -76,11 +82,7 @@ Note.prototype = {
             _this.delete();
         })
 
-        // console.log($addNote)
-        // $addNote.on('click',function(){
-        //     _this.add()
-        // })
-
+      
         $noteContent.on('focus', function () {
             //第一次编辑信息就清除内容；编辑已有信息就保存之前的信息在before属性上
             if($noteContent.html() == 'Input Here!'){$noteContent.html('')} 
@@ -132,10 +134,11 @@ Note.prototype = {
             note: message
         }).done(function(result){
             if(result.status===0){
+                Event.fire('WaterFall')
                 Toast('add success')
             }else{
                 _this.$note.remove();
-                Event.fire('waterfall')
+                Event.fire('WaterFall')
                 Toast(result.errorMsg);
             }
         })
@@ -149,7 +152,7 @@ Note.prototype = {
             if(result.status===0){
                 Toast('delete success')
                 _this.$note.remove();
-                Event.fire('waterfall')
+                Event.fire('WaterFall')
             }else{
                 Toast(result.errorMsg)
             }

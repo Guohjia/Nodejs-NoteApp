@@ -3,8 +3,8 @@ var Note = require('./note.js').Note;
 var Event = require('./event.js');
 
 
-var NoteManager = (function () {
-
+var NoteControl = (function () {
+    var isCreating = false
     function load() {
         $.get('/api/notes')
             .done(function (result) {
@@ -12,11 +12,11 @@ var NoteManager = (function () {
                     $.each(result.data, function (index, article) {
                         new Note({
                             id: article.id,
-                            context: article.text
+                            content: article.text
                         });
                     });
 
-                    Event.fire('waterfall');
+                    Event.fire('WaterFall');
                 } else {
                     Toast(result.errorMsg);
                 }
@@ -28,6 +28,7 @@ var NoteManager = (function () {
     }
 
     function add() {
+        isCreating
         new Note();
     }
 
@@ -38,4 +39,4 @@ var NoteManager = (function () {
 
 })();
 
-module.exports.NoteManager = NoteManager
+module.exports.NoteControl = NoteControl
