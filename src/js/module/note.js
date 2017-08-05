@@ -1,5 +1,5 @@
 require('../../sass/note.scss')
-var waterfall=require('./waterfall.js')
+// var waterfall=require('./waterfall.js')
 // console.log(waterfall)
 
 var Toast = require('./toast.js').Toast;
@@ -70,16 +70,16 @@ Note.prototype = {
             $noteHead = $note.find('.note-head'),
             $noteContent = $note.find('.note-content'),
             $delete = $note.find('.delete');
-            $addNote=$('.header .add-note')
+            // $addNote=$('.header .add-note')
 
         $delete.on('click', function () {
             _this.delete();
         })
 
         // console.log($addNote)
-        $addNote.on('click',function(){
-            _this.add()
-        })
+        // $addNote.on('click',function(){
+        //     _this.add()
+        // })
 
         $noteContent.on('focus', function () {
             //第一次编辑信息就清除内容；编辑已有信息就保存之前的信息在before属性上

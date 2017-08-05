@@ -1,5 +1,5 @@
 // var $=require('jquery')
-var $=require('../lib/jquery-3.2.0.min.js')
+// var $=require('../lib/jquery-3.2.0.min.js')
 
 function toast(message, time) {
     this.message = message;

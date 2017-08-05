@@ -1,8 +1,8 @@
-var $=require('../lib/jquery-3.2.0.min.js')
+
 var WaterFall = (function () {
     var $items;
 
-    function render($content) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        k 
+    function render($content) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
         $items=$content.children();
         var colLength = parseInt($(window).width() / $items.outerWidth(true));///列数
         var itemArr = []
@@ -20,11 +20,12 @@ var WaterFall = (function () {
             })
             itemArr[minIndex] += $(this).outerHeight(true) //给高度最小值的item赋值，即所在下标，所存储的高度
         })
+
+        // $(window).resize(function () {
+        // render($content);
+        // })  //使瀑布流随着浏览器窗口大小的改变而响应
     }
 
-    // $(window).resize(function () {
-    //     render($content);
-    // })  //使瀑布流随着浏览器窗口大小的改变而响应
 
     return render
 })()
