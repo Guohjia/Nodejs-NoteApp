@@ -1,21 +1,61 @@
-.header{
-    // border:1px solid blue;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to bottom,rgb(44, 44, 44),rgb(52, 52, 52),gray);
+.add-note{
+    position: fixed;
+    left: 1em;
+    top:0;
+    z-index: 9999;
+    &:hover{
+        color:#fff;
+    }
+}
+.clearAll{
+    position: fixed;
+    left: 5em;
+    top:0;
+    z-index: 9999;
+    &:hover{
+        color:#fff;
+    }
+}
+.signIn{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    border:1px solid #ccc;
+    box-shadow: 2px 1px 2px 0px #fff;
+    padding:1em;
+    border-radius: 4px;
+    z-index: 999;
+    text-align: center;
     color:#fff;
-    // background: rgba()
+    a{
+        color:#fff;
+        &:hover{
+            color:#00B7FF;
+        }
+    }
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: black;
+    color:#fff;
     .user-area{
-        // border:1px solid green;
         display: flex;
         align-items: center;
         li{
-            padding: 1em .5em;
+            padding: 1em 1em 0 1em;
             img{
             width: 3em;
             height: 3em;
             border-radius: 50%;
+            }
+            a{
+                color:#00B7FF;
+                &:hover{
+                    color:#fff;
+                }
             }
         }
         &:after{
@@ -26,21 +66,19 @@
     }
 }
 
-
-// .add-note{
-//     position: fixed;
-//     top: 0;
-//     left: 1em;
-// }
 .wrapper{
     position: relative;
-    border:1px solid red;
+    // display: flex;
+    // border:1px solid green;
+    background: #000;
+    // overflow: scroll;
     .note{
-        // border:1px solid blue;
+        z-index: 999;
         width: 8em;
-        // margin:1em 1em 0 0;
+        opacity: .88;
         position: absolute;
         transition: all 0.6s ease-in-out;
+        margin:1em 1em 0 1em;
         .note-head{
             padding: 1em;
             .delete{

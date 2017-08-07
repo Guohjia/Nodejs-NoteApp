@@ -16,9 +16,9 @@ function Note(options) {
 
 Note.prototype = {
     colors: [
-        ['#ea9b35', '#efb04e'], // headColor, containerColor
-        ['#dd598b', '#e672a2'],
-        ['#eee34b', '#f2eb67'],
+        ['rgb(39,44,50)', '#fff'], // headColor, containerColor
+        ['rgb(39,44,50)', '#fff'],
+        ['rgb(39,44,50)', '#fff'],
         ['#c24226', '#d15a39'],
         ['#c1c341', '#d0d25c'],
         ['#3f78c3', '#5591d2']
@@ -95,23 +95,42 @@ Note.prototype = {
             }
         });
 
-        //设置笔记的移动
-        $noteHead.on('mousedown', function (e) {
-            var evtX = e.pageX - $note.offset().left,   //evtX 计算事件的触发点在 dialog内部到 dialog 的左边缘的距离
-                evtY = e.pageY - $note.offset().top;
-            $note.addClass('draggable').data('evtPos', { x: evtX, y: evtY }); //把事件到 dialog 边缘的距离保存下来
-        }).on('mouseup', function () {   //鼠标松开拖放结束
-            $note.removeClass('draggable').removeData('evtpos');
-        });
-
-        $('body').on('mousemove', function (e) {
-            $('.draggable').length && $('.draggable').offset({   //$('.draggable').length代表存在拖动元素
-                top: e.pageY - $('.draggable').data('evtPos').y,    // 当用户鼠标移动时，根据鼠标的位置和前面保存的距离，计算 dialog 的绝对位置
-                left: e.pageX - $('.draggable').data('evtPos').x
-            });
-        });
+        $('.clearAll')[0].onclick=function(){
+            if(confirm('确定要全部删除吗')){
+                _this.deleteAll()
+            }
+        };
     },
+            // if(confirm('确定要全部删除吗')){
+            //     console.log('delete all...')
+            //     var _this=this;
+            //     $.post('/api/notes/delete',{id:_this.id})
+            //     .done(function(result){
+            //     if(result.status===0){
+            //         Toast('delete success')
+            //         _this.$note.remove();
+            //         Event.fire('WaterFall')
+            //     }else{
+            //         Toast(result.errorMsg)
+            //     }
+            //     },
 
+
+        //设置笔记的移动
+        // $noteHead.on('mousedown', function (e) {
+        //     var evtX = e.pageX - $note.offset().left,   //evtX 计算事件的触发点在 dialog内部到 dialog 的左边缘的距离
+        //         evtY = e.pageY - $note.offset().top;
+        //     $note.addClass('draggable').data('evtPos', { x: evtX, y: evtY }); //把事件到 dialog 边缘的距离保存下来
+        // }).on('mouseup', function () {   //鼠标松开拖放结束
+        //     $note.removeClass('draggable').removeData('evtpos');
+        // });
+
+        // $('body').on('mousemove', function (e) {
+        //     $('.draggable').length && $('.draggable').offset({   //$('.draggable').length代表存在拖动元素
+        //         top: e.pageY - $('.draggable').data('evtPos').y,    // 当用户鼠标移动时，根据鼠标的位置和前面保存的距离，计算 dialog 的绝对位置
+        //         left: e.pageX - $('.draggable').data('evtPos').x
+        //     });
+        // });
     edit: function (message) {
         console.log('eidt...')
         var _this = this;
@@ -153,6 +172,19 @@ Note.prototype = {
                 Toast('delete success')
                 _this.$note.remove();
                 Event.fire('WaterFall')
+            }else{
+                Toast(result.errorMsg)
+            }
+        })
+    },
+
+    deleteAll:function(){
+        console.log('delete all..')
+        $.post('/api/notes/deleteAll')
+        .done(function(result){
+            if(result.status===0){
+                $('.wrapper').empty();
+                Toast('deleteAll success')
             }else{
                 Toast(result.errorMsg)
             }

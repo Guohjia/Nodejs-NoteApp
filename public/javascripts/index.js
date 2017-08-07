@@ -551,7 +551,7 @@ module.exports=EventCenter;
 
 /* WEBPACK VAR INJECTION */(function($) {// var $=require('jquery')
 // var $=require('../lib/jquery-3.2.0.min.js')
-__webpack_require__(11)
+__webpack_require__(16)
 
 
 function toast(message, time) {
@@ -593,10 +593,13 @@ module.exports.Toast=Toast
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {__webpack_require__(7)
+__webpack_require__(10)
+__webpack_require__(14)
+// require('./module/navFixed.js')
 
-var NoteControl = __webpack_require__(10).NoteControl;
+var NoteControl = __webpack_require__(15).NoteControl;
 var Event = __webpack_require__(3);
-var WaterFall = __webpack_require__(16);
+var WaterFall = __webpack_require__(21);
 
 NoteControl.load();
 
@@ -605,6 +608,7 @@ $('.add-note').on('click', function() {
     NoteControl.add();
  
 })
+
 
 Event.on('WaterFall', function(){
   WaterFall($('.wrapper'));
@@ -667,7 +671,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0; }\n\na {\n  text-decoration: none; }\n\nul, li {\n  list-style: none;\n  margin: 0;\n  padding: 0; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  height: 100vh;\n  position: relative;\n  overflow-x: hidden; }\n\na {\n  text-decoration: none; }\n\nul, li {\n  list-style: none;\n  margin: 0;\n  padding: 0; }\n", ""]);
 
 // exports
 
@@ -771,8 +775,122 @@ module.exports = function (css) {
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(11);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(2)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./starrySky.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./starrySky.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".noite {\n  background: -webkit-linear-gradient(top, black 50%, #191327 80%, #2b2048);\n  width: 100%;\n  height: 150%;\n  position: absolute;\n  overflow: hidden; }\n\n.constelacao {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  animation: rotate 1000s infinite linear; }\n\n.estrela {\n  background-color: white;\n  border-radius: 50%;\n  position: absolute;\n  animation-name: estrela;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite; }\n\n.estrela.style1 {\n  animation-duration: 0.5s;\n  animation-name: estrela; }\n\n.estrela.style2 {\n  animation-duration: 1s;\n  animation-name: estrela; }\n\n.estrela.style3 {\n  animation-duration: 1.5s;\n  animation-name: estrela; }\n\n.estrela.style4 {\n  animation-duration: 2s;\n  animation-name: estrelaDestacada; }\n\n.estrela.tam1 {\n  width: 1px;\n  height: 1px; }\n\n.estrela.tam2 {\n  width: 2px;\n  height: 2px; }\n\n.estrela.tam3 {\n  width: 3px;\n  height: 3px; }\n\n.estrela.opacity1 {\n  opacity: 1; }\n\n.estrela.opacity2 {\n  opacity: .5; }\n\n.estrela.opacity3 {\n  opacity: .1; }\n\n.meteoro {\n  position: absolute;\n  background-color: #fff;\n  width: 2px;\n  height: 2px;\n  border-radius: 50%;\n  transform: rotate(-35deg);\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 1s; }\n\n.meteoro:before {\n  content: \"\";\n  display: inline-block;\n  vertical-align: middle;\n  margin-right: 10px;\n  width: 0;\n  height: 0;\n  border-top: 1px solid transparent;\n  border-bottom: 1px solid transparent;\n  border-left: 85px solid white;\n  position: absolute;\n  left: 2px;\n  top: 0; }\n\n.meteoro.style1 {\n  animation-name: meteoroStyle1; }\n\n.meteoro.style2 {\n  animation-name: meteoroStyle2; }\n\n.meteoro.style3 {\n  animation-name: meteoroStyle3; }\n\n.meteoro.style4 {\n  animation-name: meteoroStyle4; }\n\n.lua {\n  position: absolute;\n  right: 200px;\n  top: 150px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);\n  background-color: #fff;\n  animation-name: lua;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 10s; }\n\n.lua .textura {\n  background-image: url(" + __webpack_require__(12) + ");\n  background-position: center;\n  background-size: 100%;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  overflow: hidden;\n  opacity: 0.4; }\n\n.floresta {\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 20vh; }\n\n.floresta img {\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  left: 0; }\n\n@keyframes escurecer {\n  0% {\n    top: 0; }\n  100% {\n    top: 100%; } }\n\n@keyframes estrela {\n  0% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); }\n  50% {\n    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4); }\n  100% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); } }\n\n@keyframes estrelaDestacada {\n  0% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 white; }\n  20% {\n    background-color: #FFC4C4;\n    box-shadow: 0 0 10px 0 #ffc4c4; }\n  80% {\n    background-color: #C4CFFF;\n    box-shadow: 0 0 10px 0 #c4cfff; }\n  100% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2); } }\n\n@keyframes meteoroStyle1 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 100px; }\n  30% {\n    opacity: .3; }\n  60% {\n    opacity: .3; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 600px; } }\n\n@keyframes meteoroStyle2 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 100px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 600px; } }\n\n@keyframes meteoroStyle3 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 800px; } }\n\n@keyframes meteoroStyle4 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 800px; } }\n\n@keyframes lua {\n  0% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  50% {\n    box-shadow: 0 0 80px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  100% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); } }\n\n@keyframes rotate {\n  0% {\n    -webkit-transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(180deg); } }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./images/bgMoon_1KURgfh.png";
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./images/bgTree_BgDuutB.png";
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+function init(){
+
+  //estrelas
+  var style = ["style1", "style2", "style3", "style4"];
+  var tam = ["tam1", "tam1", "tam1", "tam2", "tam3"];
+  var opacity = ["opacity1", "opacity1", "opacity1", "opacity2", "opacity2", "opacity3"];
+  
+  function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;  //取整包括min,不包括max
+  }
+
+  var estrela = "";
+  // var qtdeEstrelas = 500;
+  var noite = document.querySelector(".constelacao");
+  var widthWindow = window.innerWidth;
+  var heightWindow = window.innerHeight;
+
+  for (var i = 0; i < 500; i++) {  //i代表星星的数量,随机添加class和style，利用box-shadow动画使星星闪烁
+    estrela += "<span class='estrela " + style[getRandomArbitrary(0, 4)] + " " + opacity[getRandomArbitrary(0, 6)] + " "
+    + tam[getRandomArbitrary(0, 5)] + "' style='animation-delay: ." +getRandomArbitrary(0, 9)+ "s; left: "
+    + getRandomArbitrary(0, widthWindow) + "px; top: " + getRandomArbitrary(0, heightWindow) + "px;'></span>";
+  }
+
+  noite.innerHTML = estrela;
+
+  //meteoros
+
+  var numeroAleatorio = 5000;  //初始化流星第一次出现时间
+
+  setTimeout(function(){  // 启动流星出现
+    carregarMeteoro();
+  }, numeroAleatorio);
+
+  function carregarMeteoro(){
+    setTimeout(carregarMeteoro, numeroAleatorio);  //循环执行流行插入的函数，使流星不间断出现
+    numeroAleatorio = getRandomArbitrary(5000, 10000); //修改下次流星划过的时间
+    var meteoro = "<div class='meteoro "+ style[getRandomArbitrary(0, 4)] +"'></div>";  //随机添加class 生成行动路径
+    document.getElementsByClassName('chuvaMeteoro')[0].innerHTML = meteoro;
+
+    setTimeout(function(){
+      document.getElementsByClassName('chuvaMeteoro')[0].innerHTML = "";
+    }, 1000);  //每个流星只执行一次动画，然后清除
+  }
+
+}
+
+window.onload = init;
+
+
+//react处难点:
+//用js生成500个星星，然后插入dom结点
+//不断插入流星结点
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /* WEBPACK VAR INJECTION */(function($) {var Toast = __webpack_require__(4).Toast;
-var Note = __webpack_require__(13).Note;
+var Note = __webpack_require__(18).Note;
 var Event = __webpack_require__(3);
 
 
@@ -817,13 +935,13 @@ module.exports.NoteControl = NoteControl
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(12);
+var content = __webpack_require__(17);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -848,7 +966,7 @@ if(false) {
 }
 
 /***/ }),
-/* 12 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -856,16 +974,16 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 20px;\n  color: black;\n  background: blue;\n  padding: 5px 10px;\n  border-radius: 3px;\n  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);\n  display: none; }\n", ""]);
+exports.push([module.i, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 20px;\n  color: #fff;\n  background: #009bdb;\n  padding: 5px 10px;\n  border-radius: 3px;\n  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);\n  display: none; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 13 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(14)
+__webpack_require__(19)
 // var waterfall=require('./waterfall.js')
 // console.log(waterfall)
 // var WaterFall = require('./waterFall.js')
@@ -883,9 +1001,9 @@ function Note(options) {
 
 Note.prototype = {
     colors: [
-        ['#ea9b35', '#efb04e'], // headColor, containerColor
-        ['#dd598b', '#e672a2'],
-        ['#eee34b', '#f2eb67'],
+        ['rgb(39,44,50)', '#fff'], // headColor, containerColor
+        ['rgb(39,44,50)', '#fff'],
+        ['rgb(39,44,50)', '#fff'],
         ['#c24226', '#d15a39'],
         ['#c1c341', '#d0d25c'],
         ['#3f78c3', '#5591d2']
@@ -962,23 +1080,42 @@ Note.prototype = {
             }
         });
 
-        //设置笔记的移动
-        $noteHead.on('mousedown', function (e) {
-            var evtX = e.pageX - $note.offset().left,   //evtX 计算事件的触发点在 dialog内部到 dialog 的左边缘的距离
-                evtY = e.pageY - $note.offset().top;
-            $note.addClass('draggable').data('evtPos', { x: evtX, y: evtY }); //把事件到 dialog 边缘的距离保存下来
-        }).on('mouseup', function () {   //鼠标松开拖放结束
-            $note.removeClass('draggable').removeData('evtpos');
-        });
-
-        $('body').on('mousemove', function (e) {
-            $('.draggable').length && $('.draggable').offset({   //$('.draggable').length代表存在拖动元素
-                top: e.pageY - $('.draggable').data('evtPos').y,    // 当用户鼠标移动时，根据鼠标的位置和前面保存的距离，计算 dialog 的绝对位置
-                left: e.pageX - $('.draggable').data('evtPos').x
-            });
-        });
+        $('.clearAll')[0].onclick=function(){
+            if(confirm('确定要全部删除吗')){
+                _this.deleteAll()
+            }
+        };
     },
+            // if(confirm('确定要全部删除吗')){
+            //     console.log('delete all...')
+            //     var _this=this;
+            //     $.post('/api/notes/delete',{id:_this.id})
+            //     .done(function(result){
+            //     if(result.status===0){
+            //         Toast('delete success')
+            //         _this.$note.remove();
+            //         Event.fire('WaterFall')
+            //     }else{
+            //         Toast(result.errorMsg)
+            //     }
+            //     },
 
+
+        //设置笔记的移动
+        // $noteHead.on('mousedown', function (e) {
+        //     var evtX = e.pageX - $note.offset().left,   //evtX 计算事件的触发点在 dialog内部到 dialog 的左边缘的距离
+        //         evtY = e.pageY - $note.offset().top;
+        //     $note.addClass('draggable').data('evtPos', { x: evtX, y: evtY }); //把事件到 dialog 边缘的距离保存下来
+        // }).on('mouseup', function () {   //鼠标松开拖放结束
+        //     $note.removeClass('draggable').removeData('evtpos');
+        // });
+
+        // $('body').on('mousemove', function (e) {
+        //     $('.draggable').length && $('.draggable').offset({   //$('.draggable').length代表存在拖动元素
+        //         top: e.pageY - $('.draggable').data('evtPos').y,    // 当用户鼠标移动时，根据鼠标的位置和前面保存的距离，计算 dialog 的绝对位置
+        //         left: e.pageX - $('.draggable').data('evtPos').x
+        //     });
+        // });
     edit: function (message) {
         console.log('eidt...')
         var _this = this;
@@ -1024,6 +1161,19 @@ Note.prototype = {
                 Toast(result.errorMsg)
             }
         })
+    },
+
+    deleteAll:function(){
+        console.log('delete all..')
+        $.post('/api/notes/deleteAll')
+        .done(function(result){
+            if(result.status===0){
+                $('.wrapper').empty();
+                Toast('deleteAll success')
+            }else{
+                Toast(result.errorMsg)
+            }
+        })
     }
 }
 
@@ -1031,13 +1181,13 @@ Note.prototype = {
  module.exports.Note = Note
 
 /***/ }),
-/* 14 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(15);
+var content = __webpack_require__(20);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1062,7 +1212,7 @@ if(false) {
 }
 
 /***/ }),
-/* 15 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -1070,13 +1220,13 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background: linear-gradient(to bottom, #2c2c2c, #343434, gray);\n  color: #fff; }\n  .header .user-area {\n    display: flex;\n    align-items: center; }\n    .header .user-area li {\n      padding: 1em .5em; }\n      .header .user-area li img {\n        width: 3em;\n        height: 3em;\n        border-radius: 50%; }\n    .header .user-area:after {\n      content: '';\n      display: block;\n      clear: both; }\n\n.wrapper {\n  position: relative;\n  border: 1px solid red; }\n  .wrapper .note {\n    width: 8em;\n    position: absolute;\n    transition: all 0.6s ease-in-out; }\n    .wrapper .note .note-head {\n      padding: 1em; }\n      .wrapper .note .note-head .delete {\n        cursor: pointer; }\n    .wrapper .note .note-content {\n      padding: 2em 2em; }\n", ""]);
+exports.push([module.i, ".add-note {\n  position: fixed;\n  left: 1em;\n  top: 0;\n  z-index: 9999; }\n  .add-note:hover {\n    color: #fff; }\n\n.clearAll {\n  position: fixed;\n  left: 5em;\n  top: 0;\n  z-index: 9999; }\n  .clearAll:hover {\n    color: #fff; }\n\n.signIn {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border: 1px solid #ccc;\n  box-shadow: 2px 1px 2px 0px #fff;\n  padding: 1em;\n  border-radius: 4px;\n  z-index: 999;\n  text-align: center;\n  color: #fff; }\n  .signIn a {\n    color: #fff; }\n    .signIn a:hover {\n      color: #00B7FF; }\n\n.header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  background: black;\n  color: #fff; }\n  .header .user-area {\n    display: flex;\n    align-items: center; }\n    .header .user-area li {\n      padding: 1em 1em 0 1em; }\n      .header .user-area li img {\n        width: 3em;\n        height: 3em;\n        border-radius: 50%; }\n      .header .user-area li a {\n        color: #00B7FF; }\n        .header .user-area li a:hover {\n          color: #fff; }\n    .header .user-area:after {\n      content: '';\n      display: block;\n      clear: both; }\n\n.wrapper {\n  position: relative;\n  background: #000; }\n  .wrapper .note {\n    z-index: 999;\n    width: 8em;\n    opacity: .88;\n    position: absolute;\n    transition: all 0.6s ease-in-out;\n    margin: 1em 1em 0 1em; }\n    .wrapper .note .note-head {\n      padding: 1em; }\n      .wrapper .note .note-head .delete {\n        cursor: pointer; }\n    .wrapper .note .note-content {\n      padding: 2em 2em; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 16 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -1105,7 +1255,6 @@ var WaterFall = (function () {
         })
 
         $(window).resize(function () {
-            console.log('resize...')
             render($content);
         })  //使瀑布流随着浏览器窗口大小的改变而响应
     }

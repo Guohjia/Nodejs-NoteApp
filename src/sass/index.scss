@@ -1,6 +1,11 @@
 body{
     margin: 0;
     padding: 0;
+    height: 100vh;
+    // overflow: hidden;
+    position: relative;
+    overflow-x: hidden;
+    // border:1px solid red;
 }
 a{
     text-decoration: none;
