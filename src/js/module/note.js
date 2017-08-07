@@ -36,12 +36,6 @@ Note.prototype = {
     },
 
     createNote: function () {
-        // if(this.isCreating===true&&this.options.content =='Input Here!') {
-        //     console.log('正在创建')
-        //     Toast('待输入新增已存在')
-        //     return;   //正在创建并且便利签内容为初始值则直接返回，只要不是正在创建或者内容不为初始值就可以拼接字符串;
-        // }
-        // this.isCreating=true
         var template = '<div class="note">'  //一个便利贴的html
             + '<div class="note-head"><span class="delete">&times;</span></div>'
             + '<div class="note-content" contenteditable="true"></div>'   //contenteditable可修改
@@ -91,30 +85,17 @@ Note.prototype = {
                 $noteContent.data('before', $noteContent.html()) //重新保存文本内容
                 // _this.setLayout(); //???
                 // console.log($note)
-                $note.id ? _this.edit($noteContent.html()) : _this.add($noteContent.html())
+                console.log(_this.id)
+                _this.id ? _this.edit($noteContent.html()) : _this.add($noteContent.html())
             }
         });
 
-        $('.clearAll')[0].onclick=function(){
+        $('.deleteAll')[0].onclick=function(){
             if(confirm('确定要全部删除吗')){
                 _this.deleteAll()
             }
         };
     },
-            // if(confirm('确定要全部删除吗')){
-            //     console.log('delete all...')
-            //     var _this=this;
-            //     $.post('/api/notes/delete',{id:_this.id})
-            //     .done(function(result){
-            //     if(result.status===0){
-            //         Toast('delete success')
-            //         _this.$note.remove();
-            //         Event.fire('WaterFall')
-            //     }else{
-            //         Toast(result.errorMsg)
-            //     }
-            //     },
-
 
         //设置笔记的移动
         // $noteHead.on('mousedown', function (e) {

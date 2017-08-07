@@ -1,21 +1,3 @@
-.add-note{
-    position: fixed;
-    left: 1em;
-    top:0;
-    z-index: 9999;
-    &:hover{
-        color:#fff;
-    }
-}
-.clearAll{
-    position: fixed;
-    left: 5em;
-    top:0;
-    z-index: 9999;
-    &:hover{
-        color:#fff;
-    }
-}
 .signIn{
     position: absolute;
     left:50%;
@@ -35,6 +17,28 @@
         }
     }
 }
+
+
+.add-note{
+    position: fixed;
+    left: 1em;
+    top:1em;
+    z-index: 9999;
+    transition: all .2s linear;
+    &:hover{
+        transform: scale(1.2)
+    }
+}
+.deleteAll{
+    position: fixed;
+    left: 5em;
+    top:1em;
+    z-index: 9999;
+    transition: all .2s linear;
+    &:hover{
+        transform: scale(1.2)
+    }
+}
 .header{
     display: flex;
     align-items: center;
@@ -45,7 +49,7 @@
         display: flex;
         align-items: center;
         li{
-            padding: 1em 1em 0 1em;
+            padding: 1em 1em 0 0;
             img{
             width: 3em;
             height: 3em;

@@ -46,7 +46,3 @@ function init(){
 
 window.onload = init;
 
-
-//react处难点:
-//用js生成500个星星，然后插入dom结点
-//不断插入流星结点

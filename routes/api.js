@@ -70,12 +70,7 @@ router.post('/notes/delete', function (req, res, next) {
     var noteId = req.body.id
     var uid = req.session.user.id;
     
-    // console.log(req.body)
     Note.destroy({ where: { id: noteId, uid: uid } }).then(function (deleteLen) {
-      // console.log(deleteLen)
-      //   if (deleteLen === 0) {
-      //       return res.send({ status: 1, errorMsg: '你没有权限' });
-      //   }
         res.send({ status: 0 })
     }).catch(function (e) {
         res.send({ status: 1, errorMsg: '请求失败，数据库异常' });
@@ -85,19 +80,10 @@ router.post('/notes/delete', function (req, res, next) {
 
 //清楚全部
 router.post('/notes/deleteAll', function (req, res, next) {
-    // if (!req.session || !req.session.user) {
-    //     return res.send({ status: 1, errorMsg: '请先登录' })
-    // }
-    // var opts = {raw: true}
-    // var noteId = req.body.id
     console.log(req.session.user.id)
     var uid = req.session.user.id;
     
     Note.destroy({ where: { uid: uid } }).then(function (deleteLen) {
-      // console.log(deleteLen)
-      //   if (deleteLen === 0) {
-      //       return res.send({ status: 1, errorMsg: '你没有权限' });
-      //   }
         res.send({ status: 0 })
     }).catch(function (e) {
         res.send({ status: 1, errorMsg: '请求失败，数据库异常' });
