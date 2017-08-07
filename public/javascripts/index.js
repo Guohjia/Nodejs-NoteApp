@@ -78,36 +78,6 @@ a.removeEventListener("load",S),r.ready()}"complete"===d.readyState||"loading"!=
 /* 1 */
 /***/ (function(module, exports) {
 
-var EventCenter=(function(){
-    var events={};
-    function on(evt,handler){
-        events[evt]=events[evt]||[];
-        
-        events[evt].push({
-            handler:handler
-        })
-    }
-
-    function fire(evt,args){
-        if(!events[evt]){
-            return;
-        }
-        for(var i=0;i<events[evt].length;i++){
-            events[evt][i].handler(args);
-        }
-    }
-    return {
-        on:on,
-        fire:fire
-    }
-})()
-
-module.exports=EventCenter;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -187,7 +157,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -546,11 +516,43 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+var EventCenter=(function(){
+    var events={};
+    function on(evt,handler){
+        events[evt]=events[evt]||[];
+        
+        events[evt].push({
+            handler:handler
+        })
+    }
+
+    function fire(evt,args){
+        if(!events[evt]){
+            return;
+        }
+        for(var i=0;i<events[evt].length;i++){
+            events[evt][i].handler(args);
+        }
+    }
+    return {
+        on:on,
+        fire:fire
+    }
+})()
+
+module.exports=EventCenter;
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {// var $=require('jquery')
 // var $=require('../lib/jquery-3.2.0.min.js')
+__webpack_require__(11)
+
 
 function toast(message, time) {
     this.message = message;
@@ -593,8 +595,8 @@ module.exports.Toast=Toast
 /* WEBPACK VAR INJECTION */(function($) {__webpack_require__(7)
 
 var NoteControl = __webpack_require__(10).NoteControl;
-var Event = __webpack_require__(1);
-var WaterFall = __webpack_require__(14);
+var Event = __webpack_require__(3);
+var WaterFall = __webpack_require__(16);
 
 NoteControl.load();
 
@@ -640,14 +642,14 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(3)(content, options);
+var update = __webpack_require__(2)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./test.scss", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./test.scss");
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./index.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./index.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -660,12 +662,12 @@ if(false) {
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(undefined);
+exports = module.exports = __webpack_require__(1)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0; }\n\n.toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 20px;\n  color: black;\n  background: blue;\n  padding: 5px 10px;\n  border-radius: 3px;\n  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);\n  display: none; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0; }\n\na {\n  text-decoration: none; }\n\nul, li {\n  list-style: none;\n  margin: 0;\n  padding: 0; }\n", ""]);
 
 // exports
 
@@ -770,15 +772,17 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {var Toast = __webpack_require__(4).Toast;
-var Note = __webpack_require__(11).Note;
-var Event = __webpack_require__(1);
+var Note = __webpack_require__(13).Note;
+var Event = __webpack_require__(3);
 
 
 var NoteControl = (function () {
-    var isCreating = false
     function load() {
+        console.log('loading')
         $.get('/api/notes')
             .done(function (result) {
+
+                console.log(result.data)
                 if (result.status == 0) {
                     $.each(result.data, function (index, article) {
                         new Note({
@@ -799,7 +803,6 @@ var NoteControl = (function () {
     }
 
     function add() {
-        isCreating
         new Note();
     }
 
@@ -817,12 +820,57 @@ module.exports.NoteControl = NoteControl
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(12)
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(12);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(2)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./toast.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./toast.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 20px;\n  color: black;\n  background: blue;\n  padding: 5px 10px;\n  border-radius: 3px;\n  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.6);\n  display: none; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(14)
 // var waterfall=require('./waterfall.js')
 // console.log(waterfall)
 // var WaterFall = require('./waterFall.js')
 var Toast = __webpack_require__(4).Toast;
-var Event = __webpack_require__(1);
+var Event = __webpack_require__(3);
 var $=__webpack_require__(0)
 
 function Note(options) {
@@ -846,7 +894,7 @@ Note.prototype = {
     defaultOptions: {
         id: '',
         content: 'Input Here!',
-        $wrapper: $('.wrapper') //判断是否有wrapper容器存在，如果没有就用body,其实此处直接用wrapper就好，就不用每次配置信息都带上wrapper/body
+        $wrapper: $('.wrapper') 
     },
 
     initOptions: function (options) {
@@ -868,7 +916,7 @@ Note.prototype = {
         this.$note = $(template);
         this.$note.find('.note-content').html(this.options.content);
         this.options.$wrapper.append(this.$note);
-        if (!this.id) this.$note.css('bottom', '0');  //新增放到右边,待新增放底部?
+        if (!this.id) this.$note.css({'top':'100%','left':'0'});  //新增放到右边,待新增放底部?
     },
 
     setStyle: function () {
@@ -983,13 +1031,13 @@ Note.prototype = {
  module.exports.Note = Note
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(13);
+var content = __webpack_require__(15);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -997,7 +1045,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(3)(content, options);
+var update = __webpack_require__(2)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1014,21 +1062,21 @@ if(false) {
 }
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(undefined);
+exports = module.exports = __webpack_require__(1)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, ".wrapper {\n  position: relative; }\n  .wrapper .note {\n    border: 1px solid blue;\n    width: 8em;\n    margin: 1em 1em 0 0;\n    position: absolute; }\n    .wrapper .note .note-head {\n      padding: 1em; }\n      .wrapper .note .note-head .delete {\n        cursor: pointer; }\n    .wrapper .note .note-content {\n      padding: 3em 2em; }\n", ""]);
+exports.push([module.i, ".header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background: linear-gradient(to bottom, #2c2c2c, #343434, gray);\n  color: #fff; }\n  .header .user-area {\n    display: flex;\n    align-items: center; }\n    .header .user-area li {\n      padding: 1em .5em; }\n      .header .user-area li img {\n        width: 3em;\n        height: 3em;\n        border-radius: 50%; }\n    .header .user-area:after {\n      content: '';\n      display: block;\n      clear: both; }\n\n.wrapper {\n  position: relative;\n  border: 1px solid red; }\n  .wrapper .note {\n    width: 8em;\n    position: absolute;\n    transition: all 0.6s ease-in-out; }\n    .wrapper .note .note-head {\n      padding: 1em; }\n      .wrapper .note .note-head .delete {\n        cursor: pointer; }\n    .wrapper .note .note-content {\n      padding: 2em 2em; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -1056,9 +1104,10 @@ var WaterFall = (function () {
             itemArr[minIndex] += $(this).outerHeight(true) //给高度最小值的item赋值，即所在下标，所存储的高度
         })
 
-        // $(window).resize(function () {
-        // render($content);
-        // })  //使瀑布流随着浏览器窗口大小的改变而响应
+        $(window).resize(function () {
+            console.log('resize...')
+            render($content);
+        })  //使瀑布流随着浏览器窗口大小的改变而响应
     }
 
 

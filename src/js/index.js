@@ -1,4 +1,4 @@
-require('../sass/test.scss')
+require('../sass/index.scss')
 
 var NoteControl = require('./module/noteControl.js').NoteControl;
 var Event = require('./module/event.js');

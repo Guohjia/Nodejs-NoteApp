@@ -23,9 +23,9 @@ var WaterFall = (function () {
             itemArr[minIndex] += $(this).outerHeight(true) //给高度最小值的item赋值，即所在下标，所存储的高度
         })
 
-        // $(window).resize(function () {
-        // render($content);
-        // })  //使瀑布流随着浏览器窗口大小的改变而响应
+        $(window).resize(function () {
+            render($content);
+        })  //使瀑布流随着浏览器窗口大小的改变而响应
     }
 
 

@@ -4,10 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var session = require('express-session');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./routes/index'); 
+var auth = require('./routes/auth');
+// var all = require('./routes/all');
 var api = require('./routes/api');
+
 
 var app = express();
 
@@ -22,10 +26,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'sessionsecret'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use('/', index);  //设值了请求路径
-app.use('/users', users);
-app.use('/api', api)
+
+app.use('/', index);  //我的便签
+// app.use('/all', all); //全部便签
+app.use('/api', api); 
+app.use('/auth', auth); //登录
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -27,7 +27,7 @@ Note.prototype = {
     defaultOptions: {
         id: '',
         content: 'Input Here!',
-        $wrapper: $('.wrapper') //判断是否有wrapper容器存在，如果没有就用body,其实此处直接用wrapper就好，就不用每次配置信息都带上wrapper/body
+        $wrapper: $('.wrapper') 
     },
 
     initOptions: function (options) {
@@ -49,7 +49,7 @@ Note.prototype = {
         this.$note = $(template);
         this.$note.find('.note-content').html(this.options.content);
         this.options.$wrapper.append(this.$note);
-        if (!this.id) this.$note.css('bottom', '0');  //新增放到右边,待新增放底部?
+        if (!this.id) this.$note.css({'top':'100%','left':'0'});  //新增放到右边,待新增放底部?
     },
 
     setStyle: function () {

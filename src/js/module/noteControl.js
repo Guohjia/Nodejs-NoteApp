@@ -4,10 +4,12 @@ var Event = require('./event.js');
 
 
 var NoteControl = (function () {
-    var isCreating = false
     function load() {
+        console.log('loading')
         $.get('/api/notes')
             .done(function (result) {
+
+                console.log(result.data)
                 if (result.status == 0) {
                     $.each(result.data, function (index, article) {
                         new Note({
@@ -28,7 +30,6 @@ var NoteControl = (function () {
     }
 
     function add() {
-        isCreating
         new Note();
     }
 
