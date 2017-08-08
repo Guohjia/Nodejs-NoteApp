@@ -8,7 +8,7 @@ router.get('/notes', function(req, res, next) {
   if(req.session && req.session.user){
     opts.where = {uid:req.session.user.id }
   }else{
-    return res.send({status: 1, errorMsg: '点击登录开始添加便签吧！'})
+    return res.send({status: 1, errorMsg: '点击小猫开始添加便签吧！'})
   }
     // console.log(2222)
   Note.findAll(opts).then(function(notes) {
