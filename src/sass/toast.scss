@@ -1,4 +1,6 @@
 .toast {
+    min-width: 13em;
+    text-align: center;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);

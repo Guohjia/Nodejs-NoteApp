@@ -11,6 +11,14 @@
     z-index: 999;
     text-align: center;
     color:#fff;
+    .logIn{
+        svg{
+            transition: all .3s linear;
+            &:hover{               
+                transform: scale(1.2)
+            }
+        }
+    }
 }
 
 
