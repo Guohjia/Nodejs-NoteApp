@@ -1,7 +1,5 @@
 require('../../sass/note.scss')
-// var waterfall=require('./waterfall.js')
-// console.log(waterfall)
-// var WaterFall = require('./waterFall.js')
+
 var Toast = require('./toast.js').Toast;
 var Event = require('./event.js');
 var $=require('../lib/jquery-3.2.0.min.js')
@@ -17,11 +15,11 @@ function Note(options) {
 Note.prototype = {
     colors: [
         ['rgb(39,44,50)', '#fff'], // headColor, containerColor
-        ['rgb(39,44,50)', '#fff'],
-        ['rgb(39,44,50)', '#fff'],
-        ['#c24226', '#d15a39'],
-        ['#c1c341', '#d0d25c'],
-        ['#3f78c3', '#5591d2']
+        ['rgb(100,90,74)', '#fff'],
+        ['rgb(196,55,61)', '#fff'],
+        ['rgb(73,91,48)', '#fff'],
+        ['rgb(93,201,300)', '#fff'],
+        ['rgb(37,206,152)', '#fff'],
     ],
 
     defaultOptions: {
@@ -36,12 +34,16 @@ Note.prototype = {
     },
 
     createNote: function () {
+        var date;
         var template = '<div class="note">'  //一个便利贴的html
             + '<div class="note-head"><span class="delete">&times;</span></div>'
             + '<div class="note-content" contenteditable="true"></div>'   //contenteditable可修改
+            + '<div class="time"></div>'
             + '</div>';
         this.$note = $(template);
         this.$note.find('.note-content').html(this.options.content);
+        this.options.date?date=new Date(this.options.date):null
+        if(date) this.$note.find('.time').html(this.getDate(date))
         this.options.$wrapper.append(this.$note);
         if (!this.id) this.$note.css({'top':'100%','left':'0'});  //新增放到右边,待新增放底部?
     },
@@ -52,17 +54,16 @@ Note.prototype = {
         this.$note.find('.note-content').css('background-color', color[1]);
     },
 
-    ///?????
-    // setLayout: function () {
-    //     var _this = this;
-    //     console.log(this.clk)
-    //     if (_this.clk) {
-    //         clearTimeout(_this.clk);
-    //     }
-    //     _this.clk = setTimeout(function () {
-    //         Event.fire('waterfall');
-    //     }, 100);
-    // },
+    getDate:function(date){
+        var month=date.getMonth() + 1<10?'0'+(date.getMonth()+1):date.getMonth()+1
+            day=date.getDate()<10?'0'+date.getDate():date.getDate(),
+            hours=date.getHours()<10?'0'+date.getHours():date.getHours(),
+            minute=date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes(),
+            second=date.getSeconds()<10?'0'+date.getSeconds():date.getSeconds(),
+            newDate=month+'-'+day+' '+hours+':'+minute+':'+second;
+        
+        return newDate
+    }, 
 
     bindEvent: function () {
         var _this = this,
@@ -134,6 +135,7 @@ Note.prototype = {
             note: message
         }).done(function(result){
             if(result.status===0){
+                _this.$note.find('.time').html(_this.getDate(new Date(result.date)))
                 Event.fire('WaterFall')
                 Toast('add success')
             }else{

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+// var Toast = require('../src/js/module/toast.js').Toast;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var data;
@@ -9,12 +9,12 @@ router.get('/', function(req, res, next) {
       isLogin: true,
       user: req.session.user
     }
+    // Toast('欢迎回来');
   }else{
     data = {
       isLogin: false
     }
   }
-  // console.log(data)
   res.render('index', data);
 });
 

@@ -5,20 +5,18 @@ var Event = require('./event.js');
 
 var NoteControl = (function () {
     function load() {
-        console.log('loading')
         $.get('/api/notes')
             .done(function (result) {
-
-                console.log(result.data)
                 if (result.status == 0) {
                     $.each(result.data, function (index, article) {
                         new Note({
                             id: article.id,
-                            content: article.text
+                            content: article.text,
+                            date:article.updatedAt
                         });
                     });
-
                     Event.fire('WaterFall');
+                    Toast(result.successMsg,800)
                 } else {
                     Toast(result.errorMsg);
                 }

@@ -806,7 +806,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".noite {\n  background: -webkit-linear-gradient(top, black 50%, #191327 80%, #2b2048);\n  width: 100%;\n  height: 150%;\n  position: absolute;\n  overflow: hidden; }\n\n.constelacao {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  animation: rotate 1500s infinite linear; }\n\n.estrela {\n  background-color: white;\n  border-radius: 50%;\n  position: absolute;\n  animation-name: estrela;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite; }\n\n.estrela.style1 {\n  animation-duration: 0.5s;\n  animation-name: estrela; }\n\n.estrela.style2 {\n  animation-duration: 1s;\n  animation-name: estrela; }\n\n.estrela.style3 {\n  animation-duration: 1.5s;\n  animation-name: estrela; }\n\n.estrela.style4 {\n  animation-duration: 2s;\n  animation-name: estrelaDestacada; }\n\n.estrela.tam1 {\n  width: 1px;\n  height: 1px; }\n\n.estrela.tam2 {\n  width: 2px;\n  height: 2px; }\n\n.estrela.tam3 {\n  width: 3px;\n  height: 3px; }\n\n.estrela.opacity1 {\n  opacity: 1; }\n\n.estrela.opacity2 {\n  opacity: .5; }\n\n.estrela.opacity3 {\n  opacity: .1; }\n\n.meteoro {\n  position: absolute;\n  background-color: #fff;\n  width: 2px;\n  height: 2px;\n  border-radius: 50%;\n  transform: rotate(-35deg);\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 1s; }\n\n.meteoro:before {\n  content: \"\";\n  display: inline-block;\n  vertical-align: middle;\n  margin-right: 10px;\n  width: 0;\n  height: 0;\n  border-top: 1px solid transparent;\n  border-bottom: 1px solid transparent;\n  border-left: 85px solid white;\n  position: absolute;\n  left: 2px;\n  top: 0; }\n\n.meteoro.style1 {\n  animation-name: meteoroStyle1; }\n\n.meteoro.style2 {\n  animation-name: meteoroStyle2; }\n\n.meteoro.style3 {\n  animation-name: meteoroStyle3; }\n\n.meteoro.style4 {\n  animation-name: meteoroStyle4; }\n\n.lua {\n  position: absolute;\n  right: 200px;\n  top: 150px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);\n  background-color: #fff;\n  animation-name: lua;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 10s; }\n\n.lua .textura {\n  background-image: url(" + __webpack_require__(12) + ");\n  background-position: center;\n  background-size: 100%;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  overflow: hidden;\n  opacity: 0.4; }\n\n.floresta {\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 20vh; }\n\n.floresta img {\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  left: 0; }\n\n@keyframes escurecer {\n  0% {\n    top: 0; }\n  100% {\n    top: 100%; } }\n\n@keyframes estrela {\n  0% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); }\n  50% {\n    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4); }\n  100% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); } }\n\n@keyframes estrelaDestacada {\n  0% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 white; }\n  20% {\n    background-color: #FFC4C4;\n    box-shadow: 0 0 10px 0 #ffc4c4; }\n  80% {\n    background-color: #C4CFFF;\n    box-shadow: 0 0 10px 0 #c4cfff; }\n  100% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2); } }\n\n@keyframes meteoroStyle1 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 100px; }\n  30% {\n    opacity: .3; }\n  60% {\n    opacity: .3; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 600px; } }\n\n@keyframes meteoroStyle2 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 100px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 600px; } }\n\n@keyframes meteoroStyle3 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 800px; } }\n\n@keyframes meteoroStyle4 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 800px; } }\n\n@keyframes lua {\n  0% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  50% {\n    box-shadow: 0 0 80px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  100% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); } }\n\n@keyframes rotate {\n  0% {\n    -webkit-transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(180deg); } }\n", ""]);
+exports.push([module.i, ".noite {\n  background: -webkit-linear-gradient(top, black 50%, #191327 80%, #2b2048);\n  width: 100%;\n  height: 150%;\n  position: absolute;\n  overflow: hidden; }\n\n.constelacao {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  animation: rotate 3000s infinite linear; }\n\n.estrela {\n  background-color: white;\n  border-radius: 50%;\n  position: absolute;\n  animation-name: estrela;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite; }\n\n.estrela.style1 {\n  animation-duration: 0.5s;\n  animation-name: estrela; }\n\n.estrela.style2 {\n  animation-duration: 1s;\n  animation-name: estrela; }\n\n.estrela.style3 {\n  animation-duration: 1.5s;\n  animation-name: estrela; }\n\n.estrela.style4 {\n  animation-duration: 2s;\n  animation-name: estrelaDestacada; }\n\n.estrela.tam1 {\n  width: 1px;\n  height: 1px; }\n\n.estrela.tam2 {\n  width: 2px;\n  height: 2px; }\n\n.estrela.tam3 {\n  width: 3px;\n  height: 3px; }\n\n.estrela.opacity1 {\n  opacity: 1; }\n\n.estrela.opacity2 {\n  opacity: .5; }\n\n.estrela.opacity3 {\n  opacity: .1; }\n\n.meteoro {\n  position: absolute;\n  background-color: #fff;\n  width: 2px;\n  height: 2px;\n  border-radius: 50%;\n  transform: rotate(-35deg);\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 1s; }\n\n.meteoro:before {\n  content: \"\";\n  display: inline-block;\n  vertical-align: middle;\n  margin-right: 10px;\n  width: 0;\n  height: 0;\n  border-top: 1px solid transparent;\n  border-bottom: 1px solid transparent;\n  border-left: 85px solid white;\n  position: absolute;\n  left: 2px;\n  top: 0; }\n\n.meteoro.style1 {\n  animation-name: meteoroStyle1; }\n\n.meteoro.style2 {\n  animation-name: meteoroStyle2; }\n\n.meteoro.style3 {\n  animation-name: meteoroStyle3; }\n\n.meteoro.style4 {\n  animation-name: meteoroStyle4; }\n\n.lua {\n  position: absolute;\n  right: 200px;\n  top: 150px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);\n  background-color: #fff;\n  animation-name: lua;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 10s; }\n\n.lua .textura {\n  background-image: url(" + __webpack_require__(12) + ");\n  background-position: center;\n  background-size: 100%;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  overflow: hidden;\n  opacity: 0.4; }\n\n.floresta {\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 20vh; }\n\n.floresta img {\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  left: 0; }\n\n@keyframes escurecer {\n  0% {\n    top: 0; }\n  100% {\n    top: 100%; } }\n\n@keyframes estrela {\n  0% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); }\n  50% {\n    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4); }\n  100% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); } }\n\n@keyframes estrelaDestacada {\n  0% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 white; }\n  20% {\n    background-color: #FFC4C4;\n    box-shadow: 0 0 10px 0 #ffc4c4; }\n  80% {\n    background-color: #C4CFFF;\n    box-shadow: 0 0 10px 0 #c4cfff; }\n  100% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2); } }\n\n@keyframes meteoroStyle1 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 100px; }\n  30% {\n    opacity: .3; }\n  60% {\n    opacity: .3; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 600px; } }\n\n@keyframes meteoroStyle2 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 100px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 600px; } }\n\n@keyframes meteoroStyle3 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 800px; } }\n\n@keyframes meteoroStyle4 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 800px; } }\n\n@keyframes lua {\n  0% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  50% {\n    box-shadow: 0 0 80px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  100% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); } }\n\n@keyframes rotate {\n  0% {\n    -webkit-transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(180deg); } }\n", ""]);
 
 // exports
 
@@ -888,20 +888,18 @@ var Event = __webpack_require__(3);
 
 var NoteControl = (function () {
     function load() {
-        console.log('loading')
         $.get('/api/notes')
             .done(function (result) {
-
-                console.log(result.data)
                 if (result.status == 0) {
                     $.each(result.data, function (index, article) {
                         new Note({
                             id: article.id,
-                            content: article.text
+                            content: article.text,
+                            date:article.updatedAt
                         });
                     });
-
                     Event.fire('WaterFall');
+                    Toast(result.successMsg,800)
                 } else {
                     Toast(result.errorMsg);
                 }
@@ -976,9 +974,7 @@ exports.push([module.i, ".toast {\n  position: fixed;\n  left: 50%;\n  transform
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(19)
-// var waterfall=require('./waterfall.js')
-// console.log(waterfall)
-// var WaterFall = require('./waterFall.js')
+
 var Toast = __webpack_require__(4).Toast;
 var Event = __webpack_require__(3);
 var $=__webpack_require__(0)
@@ -994,11 +990,11 @@ function Note(options) {
 Note.prototype = {
     colors: [
         ['rgb(39,44,50)', '#fff'], // headColor, containerColor
-        ['rgb(39,44,50)', '#fff'],
-        ['rgb(39,44,50)', '#fff'],
-        ['#c24226', '#d15a39'],
-        ['#c1c341', '#d0d25c'],
-        ['#3f78c3', '#5591d2']
+        ['rgb(100,90,74)', '#fff'],
+        ['rgb(196,55,61)', '#fff'],
+        ['rgb(73,91,48)', '#fff'],
+        ['rgb(93,201,300)', '#fff'],
+        ['rgb(37,206,152)', '#fff'],
     ],
 
     defaultOptions: {
@@ -1013,12 +1009,16 @@ Note.prototype = {
     },
 
     createNote: function () {
+        var date;
         var template = '<div class="note">'  //一个便利贴的html
             + '<div class="note-head"><span class="delete">&times;</span></div>'
             + '<div class="note-content" contenteditable="true"></div>'   //contenteditable可修改
+            + '<div class="time"></div>'
             + '</div>';
         this.$note = $(template);
         this.$note.find('.note-content').html(this.options.content);
+        this.options.date?date=new Date(this.options.date):null
+        if(date) this.$note.find('.time').html(this.getDate(date))
         this.options.$wrapper.append(this.$note);
         if (!this.id) this.$note.css({'top':'100%','left':'0'});  //新增放到右边,待新增放底部?
     },
@@ -1029,17 +1029,16 @@ Note.prototype = {
         this.$note.find('.note-content').css('background-color', color[1]);
     },
 
-    ///?????
-    // setLayout: function () {
-    //     var _this = this;
-    //     console.log(this.clk)
-    //     if (_this.clk) {
-    //         clearTimeout(_this.clk);
-    //     }
-    //     _this.clk = setTimeout(function () {
-    //         Event.fire('waterfall');
-    //     }, 100);
-    // },
+    getDate:function(date){
+        var month=date.getMonth() + 1<10?'0'+(date.getMonth()+1):date.getMonth()+1
+            day=date.getDate()<10?'0'+date.getDate():date.getDate(),
+            hours=date.getHours()<10?'0'+date.getHours():date.getHours(),
+            minute=date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes(),
+            second=date.getSeconds()<10?'0'+date.getSeconds():date.getSeconds(),
+            newDate=month+'-'+day+' '+hours+':'+minute+':'+second;
+        
+        return newDate
+    }, 
 
     bindEvent: function () {
         var _this = this,
@@ -1111,6 +1110,7 @@ Note.prototype = {
             note: message
         }).done(function(result){
             if(result.status===0){
+                _this.$note.find('.time').html(_this.getDate(new Date(result.date)))
                 Event.fire('WaterFall')
                 Toast('add success')
             }else{
@@ -1193,7 +1193,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".signIn {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border: 1px solid #ccc;\n  box-shadow: 2px 1px 2px 0px #fff;\n  padding: 1em;\n  border-radius: 4px;\n  z-index: 999;\n  text-align: center;\n  color: #fff; }\n  .signIn a {\n    color: #fff; }\n    .signIn a:hover {\n      color: #00B7FF; }\n\n.add-note {\n  position: fixed;\n  left: 1em;\n  top: 1em;\n  z-index: 9999;\n  transition: all .2s linear; }\n  .add-note:hover {\n    transform: scale(1.2); }\n\n.deleteAll {\n  position: fixed;\n  left: 5em;\n  top: 1em;\n  z-index: 9999;\n  transition: all .2s linear; }\n  .deleteAll:hover {\n    transform: scale(1.2); }\n\n.header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  background: black;\n  color: #fff; }\n  .header .user-area {\n    display: flex;\n    align-items: center; }\n    .header .user-area li {\n      padding: 1em 1em 0 0; }\n      .header .user-area li img {\n        width: 3em;\n        height: 3em;\n        border-radius: 50%; }\n      .header .user-area li a {\n        color: #00B7FF; }\n        .header .user-area li a:hover {\n          color: #fff; }\n    .header .user-area:after {\n      content: '';\n      display: block;\n      clear: both; }\n\n.wrapper {\n  position: relative;\n  background: #000; }\n  .wrapper .note {\n    z-index: 999;\n    width: 8em;\n    opacity: .88;\n    position: absolute;\n    transition: all 0.6s ease-in-out;\n    margin: 1em 1em 0 1em; }\n    .wrapper .note .note-head {\n      padding: 1em; }\n      .wrapper .note .note-head .delete {\n        cursor: pointer; }\n    .wrapper .note .note-content {\n      padding: 2em 2em; }\n", ""]);
+exports.push([module.i, ".signIn {\n  min-width: 16em;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border: 1px solid #ccc;\n  box-shadow: 2px 1px 2px 0px #fff;\n  padding: 1em;\n  border-radius: 4px;\n  z-index: 999;\n  text-align: center;\n  color: #fff; }\n  .signIn a {\n    color: #fff; }\n    .signIn a:hover {\n      color: #00B7FF; }\n\n.add-note {\n  position: fixed;\n  left: 1em;\n  top: 1em;\n  z-index: 9999;\n  transition: all .2s linear; }\n  .add-note:hover {\n    transform: scale(1.2); }\n\n.deleteAll {\n  position: fixed;\n  left: 5em;\n  top: 1em;\n  z-index: 9999;\n  transition: all .2s linear; }\n  .deleteAll:hover {\n    transform: scale(1.2); }\n\n.header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  background: black;\n  color: #fff; }\n  .header .user-area {\n    display: flex;\n    align-items: center; }\n    .header .user-area li {\n      padding: 1em 1em 0 0; }\n      .header .user-area li img {\n        width: 3em;\n        height: 3em;\n        border-radius: 50%; }\n      .header .user-area li a {\n        color: #00B7FF; }\n        .header .user-area li a:hover {\n          color: #fff; }\n    .header .user-area:after {\n      content: '';\n      display: block;\n      clear: both; }\n\n.wrapper {\n  position: relative;\n  background: #000; }\n  .wrapper .note {\n    z-index: 999;\n    width: 8em;\n    opacity: .88;\n    position: absolute;\n    transition: all 0.6s ease-in-out;\n    margin: 1.5em 1em 0 1em;\n    box-shadow: -4px 1px 3px 1px black; }\n    .wrapper .note .note-head {\n      padding: .5em;\n      border-radius: 2px;\n      text-align: right; }\n      .wrapper .note .note-head .delete {\n        cursor: pointer;\n        font-size: 1.5em;\n        color: #fff; }\n        .wrapper .note .note-head .delete:hover {\n          color: black; }\n    .wrapper .note .note-content {\n      padding: 2em 2em; }\n    .wrapper .note .time {\n      display: none;\n      position: absolute;\n      left: 0;\n      color: #fff;\n      top: -21px;\n      height: 1em; }\n    .wrapper .note:hover .time {\n      display: block; }\n", ""]);
 
 // exports
 
