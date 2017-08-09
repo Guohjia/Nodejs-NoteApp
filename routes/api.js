@@ -33,7 +33,6 @@ router.post('/notes/add', function(req, res, next){
  
   var uid = req.session.user.id;
 
-//   console.log({text: note, uid: uid})
   Note.create({text: note, uid: uid}).then(function(note){
     res.send({status: 0,date:note.dataValues.createdAt})
   }).catch(function(){

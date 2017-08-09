@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
       isLogin: true,
       user: req.session.user
     }
-    // Toast('欢迎回来');
   }else{
     data = {
       isLogin: false
