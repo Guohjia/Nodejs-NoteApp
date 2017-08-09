@@ -2,4 +2,4 @@
 
 ### 一个便利签项目
 
-### [预览](guohjia.site)
+### [预览](http://guohjia.site)
