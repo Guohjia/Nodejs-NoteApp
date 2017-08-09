@@ -10,37 +10,35 @@ function init(){
   }
 
   var estrela = "";
-  // var qtdeEstrelas = 500;
   var noite = document.querySelector(".constelacao");
   var widthWindow = window.innerWidth;
   var heightWindow = window.innerHeight;
 
-  for (var i = 0; i < 500; i++) {  //i代表星星的数量,随机添加class和style，利用box-shadow动画使星星闪烁
-    estrela += "<span class='estrela " + style[getRandomArbitrary(0, 4)] + " " + opacity[getRandomArbitrary(0, 6)] + " "
+  for (var i = 0; i <150; i++) {  //i代表星星的数量,随机添加class和style，利用box-shadow动画使星星闪烁
+      estrela += "<span class='estrela "  + style[getRandomArbitrary(0, 4)] +" " + opacity[getRandomArbitrary(0, 6)] + " "
     + tam[getRandomArbitrary(0, 5)] + "' style='animation-delay: ." +getRandomArbitrary(0, 9)+ "s; left: "
     + getRandomArbitrary(0, widthWindow) + "px; top: " + getRandomArbitrary(0, heightWindow) + "px;'></span>";
   }
 
   noite.innerHTML = estrela;
 
-  //meteoros
 
-  var numeroAleatorio = 5000;  //初始化流星第一次出现时间
+  // var numeroAleatorio = 5000;  //初始化流星第一次出现时间
 
-  setTimeout(function(){  // 启动流星出现
-    carregarMeteoro();
-  }, numeroAleatorio);
+  // setTimeout(function(){  // 启动流星出现
+  //   carregarMeteoro();
+  // }, numeroAleatorio);
 
-  function carregarMeteoro(){
-    setTimeout(carregarMeteoro, numeroAleatorio);  //循环执行流行插入的函数，使流星不间断出现
-    numeroAleatorio = getRandomArbitrary(5000, 10000); //修改下次流星划过的时间
-    var meteoro = "<div class='meteoro "+ style[getRandomArbitrary(0, 4)] +"'></div>";  //随机添加class 生成行动路径
-    document.getElementsByClassName('chuvaMeteoro')[0].innerHTML = meteoro;
+  // function carregarMeteoro(){
+  //   setTimeout(carregarMeteoro, numeroAleatorio);  //循环执行流行插入的函数，使流星不间断出现
+  //   numeroAleatorio = getRandomArbitrary(5000, 10000); //修改下次流星划过的时间
+  //   var meteoro = "<div class='meteoro "+ style[getRandomArbitrary(0, 4)] +"'></div>";  //随机添加class 生成行动路径
+  //   document.getElementsByClassName('chuvaMeteoro')[0].innerHTML = meteoro;
 
-    setTimeout(function(){
-      document.getElementsByClassName('chuvaMeteoro')[0].innerHTML = "";
-    }, 1000);  //每个流星只执行一次动画，然后清除
-  }
+  //   setTimeout(function(){
+  //     document.getElementsByClassName('chuvaMeteoro')[0].innerHTML = "";
+  //   }, 1000);  //每个流星只执行一次动画，然后清除
+  // }
 
 }
 

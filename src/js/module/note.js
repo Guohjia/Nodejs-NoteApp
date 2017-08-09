@@ -2,7 +2,6 @@ require('../../sass/note.scss')
 
 var Toast = require('./toast.js').Toast;
 var Event = require('./event.js');
-var $=require('../lib/jquery-3.2.0.min.js')
 
 function Note(options) {
     this.initOptions(options);   //初始化配置便利贴信息

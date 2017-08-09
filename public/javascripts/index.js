@@ -806,7 +806,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".noite {\n  background: -webkit-linear-gradient(top, black 50%, #191327 80%, #2b2048);\n  width: 100%;\n  height: 150%;\n  position: absolute;\n  overflow: hidden; }\n\n.constelacao {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  animation: rotate 3000s infinite linear; }\n\n.estrela {\n  background-color: white;\n  border-radius: 50%;\n  position: absolute;\n  animation-name: estrela;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite; }\n\n.estrela.style1 {\n  animation-duration: 0.5s;\n  animation-name: estrela; }\n\n.estrela.style2 {\n  animation-duration: 1s;\n  animation-name: estrela; }\n\n.estrela.style3 {\n  animation-duration: 1.5s;\n  animation-name: estrela; }\n\n.estrela.style4 {\n  animation-duration: 2s;\n  animation-name: estrelaDestacada; }\n\n.estrela.tam1 {\n  width: 1px;\n  height: 1px; }\n\n.estrela.tam2 {\n  width: 2px;\n  height: 2px; }\n\n.estrela.tam3 {\n  width: 3px;\n  height: 3px; }\n\n.estrela.opacity1 {\n  opacity: 1; }\n\n.estrela.opacity2 {\n  opacity: .5; }\n\n.estrela.opacity3 {\n  opacity: .1; }\n\n.meteoro {\n  position: absolute;\n  background-color: #fff;\n  width: 2px;\n  height: 2px;\n  border-radius: 50%;\n  transform: rotate(-35deg);\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 1s; }\n\n.meteoro:before {\n  content: \"\";\n  display: inline-block;\n  vertical-align: middle;\n  margin-right: 10px;\n  width: 0;\n  height: 0;\n  border-top: 1px solid transparent;\n  border-bottom: 1px solid transparent;\n  border-left: 85px solid white;\n  position: absolute;\n  left: 2px;\n  top: 0; }\n\n.meteoro.style1 {\n  animation-name: meteoroStyle1; }\n\n.meteoro.style2 {\n  animation-name: meteoroStyle2; }\n\n.meteoro.style3 {\n  animation-name: meteoroStyle3; }\n\n.meteoro.style4 {\n  animation-name: meteoroStyle4; }\n\n.lua {\n  position: absolute;\n  right: 200px;\n  top: 150px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);\n  background-color: #fff;\n  animation-name: lua;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 10s; }\n\n.lua .textura {\n  background-image: url(" + __webpack_require__(12) + ");\n  background-position: center;\n  background-size: 100%;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  overflow: hidden;\n  opacity: 0.4; }\n\n.floresta {\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 20vh; }\n\n.floresta img {\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  left: 0; }\n\n@keyframes escurecer {\n  0% {\n    top: 0; }\n  100% {\n    top: 100%; } }\n\n@keyframes estrela {\n  0% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); }\n  50% {\n    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4); }\n  100% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); } }\n\n@keyframes estrelaDestacada {\n  0% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 white; }\n  20% {\n    background-color: #FFC4C4;\n    box-shadow: 0 0 10px 0 #ffc4c4; }\n  80% {\n    background-color: #C4CFFF;\n    box-shadow: 0 0 10px 0 #c4cfff; }\n  100% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2); } }\n\n@keyframes meteoroStyle1 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 100px; }\n  30% {\n    opacity: .3; }\n  60% {\n    opacity: .3; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 600px; } }\n\n@keyframes meteoroStyle2 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 100px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 600px; } }\n\n@keyframes meteoroStyle3 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 800px; } }\n\n@keyframes meteoroStyle4 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 800px; } }\n\n@keyframes lua {\n  0% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  50% {\n    box-shadow: 0 0 80px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); }\n  100% {\n    box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26); } }\n\n@keyframes rotate {\n  0% {\n    -webkit-transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(180deg); } }\n", ""]);
+exports.push([module.i, ".noite {\n  background: -webkit-linear-gradient(top, black 50%, #191327 80%, #2b2048);\n  width: 100%;\n  height: 150%;\n  position: absolute;\n  overflow: hidden; }\n\n.constelacao {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%; }\n\n.estrela {\n  background-color: white;\n  border-radius: 50%;\n  position: absolute;\n  animation-name: estrela;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite; }\n\n.estrela.style1 {\n  animation-duration: 0.5s;\n  animation-name: estrela; }\n\n.estrela.style2 {\n  animation-duration: 1s;\n  animation-name: estrela; }\n\n.estrela.style3 {\n  animation-duration: 1.5s;\n  animation-name: estrela; }\n\n.estrela.style4 {\n  animation-duration: 2s;\n  animation-name: estrelaDestacada; }\n\n.estrela.tam1 {\n  width: 1px;\n  height: 1px; }\n\n.estrela.tam2 {\n  width: 2px;\n  height: 2px; }\n\n.estrela.tam3 {\n  width: 3px;\n  height: 3px; }\n\n.estrela.opacity1 {\n  opacity: 1; }\n\n.estrela.opacity2 {\n  opacity: .5; }\n\n.estrela.opacity3 {\n  opacity: .1; }\n\n.meteoro {\n  position: absolute;\n  background-color: #fff;\n  width: 2px;\n  height: 2px;\n  border-radius: 50%;\n  transform: rotate(-35deg);\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  animation-duration: 1s; }\n\n.meteoro:before {\n  content: \"\";\n  display: inline-block;\n  vertical-align: middle;\n  margin-right: 10px;\n  width: 0;\n  height: 0;\n  border-top: 1px solid transparent;\n  border-bottom: 1px solid transparent;\n  border-left: 85px solid white;\n  position: absolute;\n  left: 2px;\n  top: 0; }\n\n.meteoro.style1 {\n  animation-name: meteoroStyle1; }\n\n.meteoro.style2 {\n  animation-name: meteoroStyle2; }\n\n.lua {\n  position: absolute;\n  right: 200px;\n  top: 150px;\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);\n  background-color: #fff; }\n\n.lua .textura {\n  background-image: url(" + __webpack_require__(12) + ");\n  background-position: center;\n  background-size: 100%;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  overflow: hidden;\n  opacity: 0.4; }\n\n.floresta {\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 20vh; }\n\n.floresta img {\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  left: 0; }\n\n@keyframes estrela {\n  0% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); }\n  50% {\n    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4); }\n  100% {\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.05); } }\n\n@keyframes estrelaDestacada {\n  0% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 white; }\n  20% {\n    background-color: #FFC4C4;\n    box-shadow: 0 0 10px 0 #ffc4c4; }\n  80% {\n    background-color: #C4CFFF;\n    box-shadow: 0 0 10px 0 #c4cfff; }\n  100% {\n    background-color: #FFFFFF;\n    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2); } }\n\n@keyframes meteoroStyle1 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 100px; }\n  30% {\n    opacity: .3; }\n  60% {\n    opacity: .3; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 600px; } }\n\n@keyframes meteoroStyle2 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 100px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 600px; } }\n\n@keyframes meteoroStyle3 {\n  0% {\n    opacity: 0;\n    right: 300px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1000px;\n    top: 800px; } }\n\n@keyframes meteoroStyle4 {\n  0% {\n    opacity: 0;\n    right: 700px;\n    top: 300px; }\n  30% {\n    opacity: 1; }\n  60% {\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 1400px;\n    top: 800px; } }\n", ""]);
 
 // exports
 
@@ -839,20 +839,18 @@ function init(){
   }
 
   var estrela = "";
-  // var qtdeEstrelas = 500;
   var noite = document.querySelector(".constelacao");
   var widthWindow = window.innerWidth;
   var heightWindow = window.innerHeight;
 
-  for (var i = 0; i < 500; i++) {  //i代表星星的数量,随机添加class和style，利用box-shadow动画使星星闪烁
-    estrela += "<span class='estrela " + style[getRandomArbitrary(0, 4)] + " " + opacity[getRandomArbitrary(0, 6)] + " "
+  for (var i = 0; i <150; i++) {  //i代表星星的数量,随机添加class和style，利用box-shadow动画使星星闪烁
+      estrela += "<span class='estrela "  + style[getRandomArbitrary(0, 4)] +" " + opacity[getRandomArbitrary(0, 6)] + " "
     + tam[getRandomArbitrary(0, 5)] + "' style='animation-delay: ." +getRandomArbitrary(0, 9)+ "s; left: "
     + getRandomArbitrary(0, widthWindow) + "px; top: " + getRandomArbitrary(0, heightWindow) + "px;'></span>";
   }
 
   noite.innerHTML = estrela;
 
-  //meteoros
 
   var numeroAleatorio = 5000;  //初始化流星第一次出现时间
 
@@ -895,7 +893,7 @@ var NoteControl = (function () {
                         new Note({
                             id: article.id,
                             content: article.text,
-                            date:article.updatedAt
+                            date:article.updatedAt||article.createdAt
                         });
                     });
                     Event.fire('WaterFall');
@@ -973,11 +971,10 @@ exports.push([module.i, ".toast {\n  min-width: 13em;\n  text-align: center;\n  
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(19)
+/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(19)
 
 var Toast = __webpack_require__(4).Toast;
 var Event = __webpack_require__(3);
-var $=__webpack_require__(0)
 
 function Note(options) {
     this.initOptions(options);   //初始化配置便利贴信息
@@ -1152,6 +1149,7 @@ Note.prototype = {
 
 
  module.exports.Note = Note
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 19 */
