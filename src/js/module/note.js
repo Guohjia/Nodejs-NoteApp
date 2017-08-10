@@ -97,21 +97,6 @@ Note.prototype = {
         };
     },
 
-        //设置笔记的移动
-        // $noteHead.on('mousedown', function (e) {
-        //     var evtX = e.pageX - $note.offset().left,   //evtX 计算事件的触发点在 dialog内部到 dialog 的左边缘的距离
-        //         evtY = e.pageY - $note.offset().top;
-        //     $note.addClass('draggable').data('evtPos', { x: evtX, y: evtY }); //把事件到 dialog 边缘的距离保存下来
-        // }).on('mouseup', function () {   //鼠标松开拖放结束
-        //     $note.removeClass('draggable').removeData('evtpos');
-        // });
-
-        // $('body').on('mousemove', function (e) {
-        //     $('.draggable').length && $('.draggable').offset({   //$('.draggable').length代表存在拖动元素
-        //         top: e.pageY - $('.draggable').data('evtPos').y,    // 当用户鼠标移动时，根据鼠标的位置和前面保存的距离，计算 dialog 的绝对位置
-        //         left: e.pageX - $('.draggable').data('evtPos').x
-        //     });
-        // });
     edit: function (message) {
         console.log('eidt...')
         var _this = this;

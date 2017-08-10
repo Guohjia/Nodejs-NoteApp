@@ -11,7 +11,6 @@
   left: 0;
   top: 0;
   width: 100%;
-  // animation: rotate 3000s infinite linear;
 }
 
 .estrela {
@@ -25,9 +24,6 @@
 
 .estrela.style1 { animation-duration: 0.5s; animation-name: estrela; }
 .estrela.style2 { animation-duration: 1s; animation-name: estrelaDestacada; }
-// .estrela.style3 { animation-duration: 1.5s; animation-name: estrela; }
-// .estrela.style4 { animation-duration: 2s; animation-name: estrelaDestacada; }
-
 .estrela.tam1 { width: 1px; height: 1px; }
 .estrela.tam2 { width: 2px; height: 2px; }
 .estrela.tam3 { width: 3px; height: 3px; }
@@ -63,11 +59,6 @@
   top: 0;
 }
 
-// .meteoro.style1 { animation-name: meteoroStyle1; }
-// .meteoro.style2 { animation-name: meteoroStyle2; }
-// .meteoro.style3 { animation-name: meteoroStyle3; }
-// .meteoro.style4 { animation-name: meteoroStyle4; }
-
 .lua {
   position: absolute;
   right: 200px;
@@ -77,14 +68,10 @@
   border-radius: 50%;
   box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
   background-color: #fff;
-  // animation-name: lua;
-  // animation-timing-function: linear;
-  // animation-iteration-count: infinite;
-  // animation-duration: 10s;
 }
 
 .lua .textura {
-  background-image: url(../images/bgMoon.png);
+  background-image: url(../images/bgMoon-1.png);
   background-position: center;
   background-size: 100%;
   width: 100%;
@@ -98,7 +85,7 @@
 }
 
 .floresta {
-  background-image: url(../images/bgTree.png);
+  background-image: url(../images/bgTree-1.png);
   background-size: cover;
   position: fixed;
   left: 0;
@@ -114,10 +101,6 @@
   left: 0;
 }
 
-// @keyframes escurecer {
-//   0%   { top: 0; }
-//   100% { top: 100%; }
-// }
 
 @keyframes estrela {
   0% {
@@ -150,51 +133,3 @@
   }
 }
 
-// @keyframes meteoroStyle1 {
-//   0% { opacity: 0; right: 300px; top: 100px; }
-//   30% { opacity: .3; }
-//   60% { opacity: .3; }
-//   100% { opacity: 0; right: 1000px; top: 600px; }
-// }
-
-// @keyframes meteoroStyle2 {
-//   0% { opacity: 0; right: 700px; top: 100px; }
-//   30% { opacity: 1; }
-//   60% { opacity: 1; }
-//   100% { opacity: 0; right: 1400px; top: 600px; }
-// }
-
-// @keyframes meteoroStyle3 {
-//   0% { opacity: 0; right: 300px; top: 300px; }
-//   30% { opacity: 1; }
-//   60% { opacity: 1; }
-//   100% { opacity: 0; right: 1000px; top: 800px; }
-// }
-
-// @keyframes meteoroStyle4 {
-//   0% { opacity: 0; right: 700px; top: 300px; }
-//   30% { opacity: 1; }
-//   60% { opacity: 1; }
-//   100% { opacity: 0; right: 1400px; top: 800px; }
-// }
-
-// @keyframes lua {
-//   0%{
-//     box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
-//   }
-//   50% {
-//     box-shadow: 0 0 80px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
-//   }
-//   100% {
-//     box-shadow: 0 0 160px 0 #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
-//   }
-// }
-
-// @keyframes rotate {
-//   0% {
-//     -webkit-transform: rotate(0deg);
-//   }
-//   100% {
-//     -webkit-transform: rotate(180deg);
-//   }
-// }
