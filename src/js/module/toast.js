@@ -1,5 +1,3 @@
-// var $=require('jquery')
-// var $=require('../lib/jquery-3.2.0.min.js')
 require('../../sass/toast.scss')
 
 
@@ -31,7 +29,5 @@ toast.prototype = {
 function Toast(message,time){
     return new toast(message,time)
 }
-
-// Toast('hello')
 
 module.exports.Toast=Toast
